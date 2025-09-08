@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Deploy Martini package to Lonti Console
         uses: lontiplatform/martini-build-pipeline-lonti-managed-hosting@v1
         with:
