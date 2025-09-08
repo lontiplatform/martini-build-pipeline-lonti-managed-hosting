@@ -48,6 +48,8 @@ export async function uploadPackages(
   let responseBody: ConsoleUploadResponse | null = null;
   let rawText: string | null = null;
 
+  const responseClone = response.clone();
+
   try {
     responseBody = (await response.json()) as ConsoleUploadResponse;
     core.debug(`Response JSON parsed: ${JSON.stringify(responseBody)}`);
@@ -55,7 +57,7 @@ export async function uploadPackages(
     core.debug(
       `Response JSON parse failed: ${(error as Error).message}, reading as text`,
     );
-    rawText = await response.text();
+    rawText = await responseClone.text();
     core.debug(`Response raw text: ${rawText}`);
   }
 
