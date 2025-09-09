@@ -66557,7 +66557,7 @@ function getInputs() {
     access_token: core.getInput("access_token") || process.env["ACCESS_TOKEN"] || "",
     base_dir: core.getInput("base_dir") || process.env["BASE_DIR"] || "",
     package_dir: core.getInput("package_dir") || process.env["PACKAGE_DIR"] || "packages",
-    description: core.getInput("description") || process.env["DESCRIPTION"] || "Deployed by Martini Lonti Console Deploy Utility",
+    description: core.getInput("description") || process.env["DESCRIPTION"] || "Deployed by Martini Build Pipeline Lonti Managed Hosting",
     tag: core.getInput("tag") || process.env["TAG"] || "latest"
   };
   return inputs;
@@ -66606,6 +66606,7 @@ async function uploadPackages(accessToken, instanceName, tag, description, zipFi
   const status = response.status;
   let responseBody = null;
   let rawText = null;
+  const responseClone = response.clone();
   try {
     responseBody = await response.json();
     core2.debug(`Response JSON parsed: ${JSON.stringify(responseBody)}`);
@@ -66613,7 +66614,7 @@ async function uploadPackages(accessToken, instanceName, tag, description, zipFi
     core2.debug(
       `Response JSON parse failed: ${error.message}, reading as text`
     );
-    rawText = await response.text();
+    rawText = await responseClone.text();
     core2.debug(`Response raw text: ${rawText}`);
   }
   if (responseBody) {
