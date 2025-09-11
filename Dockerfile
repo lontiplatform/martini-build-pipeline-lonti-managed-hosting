@@ -9,10 +9,10 @@ LABEL \
   org.opencontainers.image.vendor="https://lonti.com" \
   org.opencontainers.image.licenses="MIT"
 
-COPY LICENSE README.md ./
+COPY LICENSE README.md /
 
-COPY dist/ ./
+COPY dist/ /
 
-COPY entrypoint.sh ./entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
