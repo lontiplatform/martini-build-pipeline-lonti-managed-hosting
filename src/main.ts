@@ -10,7 +10,7 @@ function determineBaseDir(baseDirInput: string): string {
   const fallbackDir =
     process.env.BITBUCKET_CLONE_DIR ||
     process.env.GITHUB_WORKSPACE ||
-    process.env.CI_BUILDS_DIR ||
+    process.env.CI_PROJECT_DIR ||
     process.env.CODEBUILD_SRC_DIR ||
     process.cwd();
 

@@ -66630,7 +66630,7 @@ async function uploadPackages(accessToken, instanceName, tag, description, zipFi
 // src/main.ts
 var import_archiver = __toESM(require_archiver());
 function determineBaseDir(baseDirInput) {
-  const fallbackDir = import_process.default.env.BITBUCKET_CLONE_DIR || import_process.default.env.GITHUB_WORKSPACE || import_process.default.env.CI_BUILDS_DIR || import_process.default.env.CODEBUILD_SRC_DIR || import_process.default.cwd();
+  const fallbackDir = import_process.default.env.BITBUCKET_CLONE_DIR || import_process.default.env.GITHUB_WORKSPACE || import_process.default.env.CI_PROJECT_DIR || import_process.default.env.CODEBUILD_SRC_DIR || import_process.default.cwd();
   const chosenDir = baseDirInput && baseDirInput !== import_process.default.cwd() ? baseDirInput : fallbackDir;
   core3.debug(`Base directory determined: ${chosenDir}`);
   return chosenDir;
