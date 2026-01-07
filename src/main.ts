@@ -29,7 +29,7 @@ function zipDirectory(sourceDir: string, outPath: string) {
     archive.on("error", reject);
 
     archive.pipe(output);
-    archive.directory(sourceDir, false);
+    archive.directory(sourceDir, path.basename(sourceDir));
     archive.finalize();
   });
 }
