@@ -66642,7 +66642,7 @@ function zipDirectory(sourceDir, outPath) {
     output.on("close", () => resolve());
     archive.on("error", reject);
     archive.pipe(output);
-    archive.directory(sourceDir, false);
+    archive.directory(sourceDir, import_path2.default.basename(sourceDir));
     archive.finalize();
   });
 }
